@@ -1,11 +1,11 @@
-[Main ReadMe.md
+([Main ReadMe.md
 #### Using Arrays of Note With Sonic PI
 
 Click on the following:
 
 ##### The Basic Tools
 
-#### 1. [Using Arrays of Notes]{ https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/NotesInDataArrays )
+#### 1. [Using Arrays of Notes]( https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/NotesInDataArrays )
 
 #### 2. [How to Copy Arrays]( https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/CopyingArrays)
 
