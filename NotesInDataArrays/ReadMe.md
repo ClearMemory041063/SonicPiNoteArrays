@@ -2,7 +2,7 @@
 #### Using Arrays of Musical Notes
 
 
-[Return to main page]( )
+[Return to main page](https://github.com/ClearMemory041063/SonicPiNoteArrays )
 
 1. Play and sleep
 

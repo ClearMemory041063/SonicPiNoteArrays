@@ -1,7 +1,7 @@
 Note Conversion ReadMe.md
 #### Converting between MIDI and Letter Notes
 
-[Return to main page]( )
+[Return to main page]( https://github.com/ClearMemory041063/SonicPiNoteArrays)
 
 See example1.rb
 

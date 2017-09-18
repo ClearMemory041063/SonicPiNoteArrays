@@ -1,6 +1,6 @@
 Copying Arrays ReadMe.md
 #### Strange Behavior When Arrays are Copied
-[Return to main page]( )
+[Return to main page]( https://github.com/ClearMemory041063/SonicPiNoteArrays)
 
 See example1.rb for the code
 #### Copying simple variables
