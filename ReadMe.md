@@ -15,4 +15,15 @@ Click on the following:
 
 #### 4. [Shifting Arrays of Notes by Musical Intervals](https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/Shifting )
 
+##### Under Construction To Be Done
+
+#### 5. Two or More Voices
+
+#### 6. Harmony
+
+#### 7. Melodic Inversion About a Note
+
+#### 8. Output to ABC Music Format to Produce Sheet Music and MIDI Files
+
+
 

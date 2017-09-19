@@ -75,5 +75,83 @@ tune1(s,interval) #t1 i2
 interval=interval.reverse
 tune1(s,interval) #t1 i1
 ```
-#### Applying Musical Intervals to 2D Arrays
-Under Construction
+#### Functione to Modify a Musical Theme Contained in a 2D Array
+Example4.rb contains the code for a 2D array containing the musical theme.
+The function playitt is use to play the tones and timings in the theme1 array.
+First define some note duration values
+
+```
+#define tempo and note lengths
+tempo=1.0
+whole=tempo
+half=whole/2.0
+dothalf=half*1.5
+quart=half/2.0
+dotquart=quart*1.5
+eighth=quart/2.0
+doteighth=eighth*1.5
+#define the release fraction
+rel=2.0 #0.8 #controls note release
+```
+Setup the musical theme in a 2D array
+
+```
+## define musical themes
+theme1=[
+  [:C4,quart],
+  [:D4,quart],
+  [:E4,quart],
+  [:C4,quart],
+  [:E4,quart],
+  [:D4,eighth],
+  [:C4,eighth],
+  [:D4,quart],
+  [:G4,quart],
+
+  [:C4,quart],
+  [:D4,quart],
+  [:E4,quart],
+  [:C4,quart],
+  [:E4,quart],
+  [:D4,eighth],
+  [:C4,eighth],
+  [:D4,quart],
+  [:G3,quart],
+]
+```
+
+Play theme1 followed by variations on theme1.
+
+```
+use_synth :fm
+playitt(theme1)
+playitt(theme1.reverse)
+playitt(shiftit(theme1,-octave))     # down an octave
+playitt(shiftit(theme1,perfectFifth)) # a neat trick to save memory
+playitt(revtime(theme1))
+playitt(revtime(theme1).reverse)
+```
+You can create new arrays using these functions or use them as the argument to the playitt function.
+For instance:
+themex=theme1.reverse
+playitt(themex)
+or
+playitt(theme1.reverse)
+
+theme1.reverse plays the theme backwards.
+shiftit(theme1,-octave) shift the tone by the interval -octave.
+Some shift values are defined in the code.
+
+```
+#define some musical intervals
+unison=0
+octave=12
+majorThird=4
+perfectFourth=5
+perfectFifth=7
+```
+
+revtime(theme1) reverses the note duration timing.
+You can stack the functions as in:
+playitt(revtime(theme1).reverse)
+
