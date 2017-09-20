@@ -100,5 +100,29 @@ C/4 D/4 E/4 C/4 |E/4 D/8 C/8 D/4 G,/4 |
 ```
 
 #### Example2.rb
-(working on it)
+This is a merger of Example1.rb from above
+and Example4.rb in the Shifting directory.
+The output is in Example2.abc, and the sheet musing is in the Example2.pdf
+
+This shows the various tranformations of the musical theme that were performed by Example4.rb.
+
+These were:
+
+```
+#use_synth :fm
+#playitt(theme1)
+#playitt(theme1.reverse)
+#playitt(shiftit(theme1,-octave))     # down an octave
+#playitt(shiftit(theme1,perfectFifth)) # a neat trick to save memory
+#playitt(revtime(theme1))
+#playitt(revtime(theme1).reverse)
+
+  # write the music for one voice in ABC format to the file
+  ABCitt(theme1,f)
+  ABCitt(theme1.reverse,f)
+  ABCitt(shiftit(theme1,-octave),f)     # down an octave
+  ABCitt(shiftit(theme1,perfectFifth),f) # a neat trick to save memory
+  ABCitt(revtime(theme1),f)
+  ABCitt(revtime(theme1).reverse,f)
+  #end of file writing
 
