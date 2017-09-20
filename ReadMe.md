@@ -17,10 +17,10 @@ Click on the following:
 
 #### 5. [Output to ABC Music Format to Produce Sheet Music]( https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/ABCformat) 
 
+#### 6. [Two or More Voices]( https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/TwoOrMoreVoices)
+
 
 ##### Under Construction To Be Done
-
-#### 6. Two or More Voices
 
 #### 6. Harmony
 
