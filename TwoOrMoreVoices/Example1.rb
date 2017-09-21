@@ -11,7 +11,7 @@ run_mode =1 #write ABC file
 ### setup path and filename
 # writing toABC file
 Filepath= "C:/Users/jj/Documents/soundPi/SonicPiNoteArrays/TwoOrMoreVoices/"
-Filename = "Example1.abc"
+Filename = "2OrMoEx1.abc"
 #####################################
 #define tempo and note lengths
 tempo=1.0 # inserting tempo into playit
@@ -102,7 +102,7 @@ end
 define :playit do|nte|
   puts nte[0],nte[1]
   a=tempo*nte[1]
-  if nte[0]!=:r
+  if nte[0]!="R" #:r
     play(nte[0],release:a*rel)
   end
   sleep a
@@ -252,8 +252,17 @@ theme1=[
 
 if run_mode <1 #play the tune
   use_synth :fm
-  playitt(theme1)
-  playitt(shiftit(theme1,octave)) # a neat trick to save memory
+  live_loop :LL1 do
+    playitt(theme1)
+    playitt(insertRest(theme1))
+    playitt(theme1)
+  end
+  live_loop :LL2 do
+    sync :LL1
+    playitt(insertRest(theme1))
+    playitt(shiftit(theme1,perfectFifth))
+    playitt(shiftit(theme1,perfectFifth))
+  end
 else  #write the ABC music file
   header=[
     "X: 1",
