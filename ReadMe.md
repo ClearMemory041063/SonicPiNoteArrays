@@ -19,10 +19,13 @@ Click on the following:
 
 #### 6. [Two or More Voices]( https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/TwoOrMoreVoices)
 
+#### 7. [Harmony]( https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/Harmony)
+
+
+
 
 ##### Under Construction To Be Done
 
-#### 6. Harmony
 
 #### 8. Melodic Inversion About a Note
 
