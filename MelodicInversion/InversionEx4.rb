@@ -366,7 +366,7 @@ keyscale=scale :C4, :major # used by harmony portion
 ## define musical themes
 theme1=[
   [:C4,dotquart],
-  # ["R",whole],
+  #  ["R",eighth],
   [:D4,eighth],
   [:E4,dotquart],
   [:C4,eighth],
@@ -391,13 +391,14 @@ theme1=[
 if run_mode <1 #play the tune
   #  use_synth :fm
   live_loop :LL1 do
-    with_fx :level, amp: 0.5 do
+    with_fx :level, amp: 1.0 do
       with_synth :pluck do #:pretty_bell      do
         playitt(theme1)
         playitt(theme1)
         playitt(theme1)
         playitt(theme1)
         playitt(theme1)
+        playitt(shiftit(theme1,perfectFifth))
       end
     end
   end
@@ -410,6 +411,7 @@ if run_mode <1 #play the tune
         playitt(invert(theme1,:E4,keyscale))
         playitt(invert(theme1,:G4,keyscale))
         playitt(harmonize(theme1,keyscale,2))
+        playitt(insertRest(theme1))
       end
     end
   end
@@ -440,12 +442,14 @@ else  #write the ABC music file
     ABCitt(theme1,f)
     ABCitt(theme1,f)
     ABCitt(theme1,f)
+    ABCitt(shiftit(theme1,perfectFifth),f)
     f.puts "V:2\n"
     ABCitt(insertRest(theme1),f)
     ABCitt(invert(theme1,:C4,keyscale),f)
     ABCitt(invert(theme1,:E4,keyscale),f)
     ABCitt(invert(theme1,:G4,keyscale),f)
     ABCitt(harmonize(theme1,keyscale,2),f)
+    ABCitt(insertRest(theme1),f)
     #end of file writing
   }
 end
