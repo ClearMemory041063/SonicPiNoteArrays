@@ -21,13 +21,15 @@ Click on the following:
 
 #### 7. [Harmony]( https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/Harmony)
 
+#### 8. [Melodic Inversion](https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/MelodicInversion)
+
+#### Some sounds as finally produced in section 8
+
+[InversionEx3]( https://drive.google.com/open?id=0BxMOEsGLzwfeYW44UzhTaGNOcU0)
 
 
-
-##### Under Construction To Be Done
-
-
-#### 8. Melodic Inversion About a Note
+[InversionEx4]( https://drive.google.com/open?id=0BxMOEsGLzwfeMVdlOFNLbEZhMzQ)
+ 
 
 
 
