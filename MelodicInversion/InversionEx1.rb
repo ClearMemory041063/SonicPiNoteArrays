@@ -68,9 +68,11 @@ def shiftit(s,interval)
   rval= array_copy2D(s)
   i=0
   while i < s.length
-    a=note(rval[i][0]+interval)
-    b=midi2note(a)
-    rval[i][0]=b
+    if rval[i][0] != "R"
+      a=note(rval[i][0]+interval)
+      b=midi2note(a)
+      rval[i][0]=b
+    end
     i+=1
   end
   return rval
@@ -323,14 +325,25 @@ def invertNote(ref,tone,keyscale)
   return retval
 end # invertNote
 ###########################
-
-#############
 def invert(s,ref,keyscale)
   rval= array_copy2D(s)
   i=0
   while i < s.length
-    #rval[i][0]=shiftOnScale(rval[i][0],scal,n)
-    rval[i][0]=invertNote(ref,rval[i][0],keyscale)
+    if rval[i][0] != "R"
+      rval[i][0]=invertNote(ref,rval[i][0],keyscale)
+    end
+    i+=1
+  end
+  return rval
+end
+#############
+def harmonize(s,keyscale,n) #invert(s,ref,keyscale)
+  rval= array_copy2D(s)
+  i=0
+  while i < s.length
+    if rval[i][0] != "R"
+      rval[i][0]=shiftOnScale(rval[i][0],keyscale,n)
+    end
     i+=1
   end
   return rval
@@ -354,6 +367,7 @@ keyscale=scale :C4, :major # used by harmony portion
 ## define musical themes
 theme1=[
   [:C4,quart],
+  ["R",half],
   [:D4,quart],
   [:E4,quart],
   [:C4,quart],
@@ -382,6 +396,8 @@ if run_mode <1 #play the tune
       playitt(theme1)
       playitt(insertRest(theme1))
       playitt(theme1)
+      playitt(insertRest(theme1))
+      
     end
   end
   live_loop :LL2 do
@@ -390,6 +406,7 @@ if run_mode <1 #play the tune
       playitt(insertRest(theme1))
       playitt(harmonize(theme1,keyscale,2))
       playitt(harmonize(theme1,keyscale,2))
+      playitt(shiftit(theme1,perfectFifth))
     end
   end
 else  #write the ABC music file
@@ -417,12 +434,12 @@ else  #write the ABC music file
     ABCitt(theme1,f)
     ABCitt(insertRest(theme1),f)
     ABCitt(theme1,f)
+    ABCitt(insertRest(theme1),f)
     f.puts "V:2\n"
     ABCitt(insertRest(theme1),f)
     ABCitt(harmonize(theme1,keyscale,2),f)
     ABCitt(harmonize(theme1,keyscale,2),f)
-    #    ABCitt(shiftit(theme1,perfectFifth),f) # a neat trick to save memory
-    #    ABCitt(shiftit(theme1,perfectFifth),f) # a neat trick to save memory
+    ABCitt(shiftit(theme1,perfectFifth),f)
     #end of file writing
   }
 end

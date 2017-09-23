@@ -68,9 +68,11 @@ def shiftit(s,interval)
   rval= array_copy2D(s)
   i=0
   while i < s.length
-    a=note(rval[i][0]+interval)
-    b=midi2note(a)
-    rval[i][0]=b
+    if rval[i][0] != "R"
+      a=note(rval[i][0]+interval)
+      b=midi2note(a)
+      rval[i][0]=b
+    end
     i+=1
   end
   return rval
@@ -329,8 +331,22 @@ def invert(s,ref,keyscale)
   rval= array_copy2D(s)
   i=0
   while i < s.length
-    #rval[i][0]=shiftOnScale(rval[i][0],scal,n)
-    rval[i][0]=invertNote(ref,rval[i][0],keyscale)
+    puts "I"
+    if rval[i][0] != "R"
+      rval[i][0]=invertNote(ref,rval[i][0],keyscale)
+    end
+    i+=1
+  end
+  return rval
+end
+#############
+def harmonize(s,keyscale,n) #invert(s,ref,keyscale)
+  rval= array_copy2D(s)
+  i=0
+  while i < s.length
+    if rval[i][0] != "R"
+      rval[i][0]=shiftOnScale(rval[i][0],keyscale,n)
+    end
     i+=1
   end
   return rval
@@ -354,6 +370,7 @@ keyscale=scale :C4, :major # used by harmony portion
 ## define musical themes
 theme1=[
   [:C4,quart],
+  #  ["R",quart],
   [:D4,quart],
   [:E4,quart],
   [:C4,quart],
