@@ -29,6 +29,10 @@ Click on the following:
 
 
 [InversionEx4]( https://drive.google.com/open?id=0BxMOEsGLzwfeMVdlOFNLbEZhMzQ)
+
+#### Inversion Notes 
+
+[Inversion Notes](https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/InversionNotes)
  
 
 
