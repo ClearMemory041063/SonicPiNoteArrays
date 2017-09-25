@@ -25,6 +25,7 @@ Click on the following:
 
 #### Some sounds as finally produced in section 8
 
+
 [InversionEx3]( https://drive.google.com/open?id=0BxMOEsGLzwfeYW44UzhTaGNOcU0)
 
 
@@ -34,6 +35,8 @@ Click on the following:
 
 [Inversion Notes](https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/InversionNotes)
  
+[InversionNote2]( https://soundcloud.com/joe-mc-749436341/inversion-note-2)
+
 
 
 
