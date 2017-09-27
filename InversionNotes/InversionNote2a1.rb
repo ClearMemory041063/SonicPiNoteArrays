@@ -1,9 +1,19 @@
-# chopsticksa.rb
+# inversionNote2a1.rb
 # 26 Sep 2017
-### fix :r problem
-# 25 sep 2017
-# Bach's 2nd cousin plays chopsticks
+# fix :r problem
+# 24 sep 2017
 ## Helper functions
+###############
+## a function to copy a one dimensional array
+def array_copy(x)
+  y=[]
+  i=0
+  while i<x.length
+    y.push(x[i])
+    i+=1
+  end
+  return y
+end
 ###############
 ## a function to copy a one dimensional array
 def array_copy(x)
@@ -156,39 +166,11 @@ def invertNote(ref,tone,keyscale)
   retval=midi2note(retval)
   return retval
 end # invertNote
-###########################
-## Tests for shiftOnScale
-#############
-## Test1 runs all 12 major scales with notes from the scale in octave 4
-define :test1 do |amplitude|
-  start = 60
-  size=12
-  stop=start+size
-  ### play a tune with a 2nd note at an interval
-  with_fx :level, amp: amplitude do
-    i=start
-    while i<stop
-      scal1=scale i, :major
-      puts "Scale=",i,midi2note(i)
-      listit(midi2noteList(scal1))
-      j=0
-      while j< scal1.length
-        nn=shiftOnScale(scal1[j],scal1,interval)
-        puts midi2note(scal1[j]),midi2note(nn)
-        play(scal1[j])
-        play(nn)
-        sleep 0.25
-        j+=1
-      end
-      i+=1
-    end
-  end
-end #test1
-
 ##################################################################
 ## New Stuff
 ##################
 ##### things to twiddle
+interval=2
 amplitude= 0.3
 use_synth :fm
 #use_synth :beep
@@ -199,17 +181,14 @@ mode= :major
 #mode= :augmented2
 #mode= :diminished
 #puts scale_names
+nle=[0.25,0.125,0.125,0.5] # note lengths
+#nle=[0.25,0.25,0.125,0.25] # note lengths
 rel= 1.5 # note release
-refn=0
-interval=2
 #####################################
-nle=[0.25,0.25,0.125,0.25] # note length
 nle=nle.ring
-top1=[4,5,6,7]
-bot1=[3,2,1,0]
 define :tune2 do |amplitude|
   keyscale=scale key, mode
-  ref= note keyscale[refn]
+  ref= note keyscale[0]
   ref=ref-12
   ks=array_copy(keyscale)
   ks1= ks.slice(0,4)+(ks.slice(4,7)).reverse
@@ -220,26 +199,15 @@ define :tune2 do |amplitude|
     k=0
     while k<3
       j=0
-      while j<top1.length
+      while j<4
         i=0
-        while i<nle.length
-          v1a=keyscale[top1[j]]
-          v1b=keyscale[bot1[j]]
-          v2a=shiftOnScale(v1a,keyscale,interval)
-          v2b=shiftOnScale(v1b,keyscale,-interval)
-          v3a=invertNote(ref,v1a,keyscale)
-          v3b=invertNote(ref,v1b,keyscale)
-          play(v1a,release: nle[i]*rel)
-          play(v1b,release: nle[i]*rel)
-          
-          if(k>0)
-            play(v2a,release: nle[i]*rel)
-            play(v2b,release: nle[i]*rel)
-          end
-          if(k==2)
-            play(v3a,release: nle[i]*rel)
-            play(v3b,release: nle[i]*rel)
-          end
+        while i<ks1.length
+          v1=shiftOnScale(ks1[i],keyscale,j)
+          v2=shiftOnScale(v1,keyscale,-5)
+          v3=invertNote(ref,v1,keyscale)
+          play(v1,release: nle[i]*rel)
+          if(k>0)then play(v2,release: nle[i]*rel) end
+          if(k==2)then play(v3,release: nle[i]*rel) end
           sleep nle[i]
           i+=1
         end
@@ -250,7 +218,7 @@ define :tune2 do |amplitude|
         i=0
         while i<ks1.length
           v1=shiftOnScale(ks1.reverse[i],keyscale,j)
-          v2=shiftOnScale(v1,keyscale,-interval) #-5)
+          v2=shiftOnScale(v1,keyscale,-5)
           v3=invertNote(ref,v1,keyscale)
           play(v1,release: nle[i]*rel)
           if(k>0)then play(v2,release: nle[i]*rel) end
@@ -281,14 +249,6 @@ end #tune2
 mode= :major
 tune2 0.25
 
-
-keyscale=scale key, mode
-puts shiftOnScale(:r,keyscale,2)
-puts shiftOnScale(:E4,keyscale,2)
-puts invertNote(:r,:G4,keyscale)
-puts invertNote(:C4,:r,keyscale)
-puts invertNote(:r,:r,keyscale)
-puts invertNote(:C4,:G4,keyscale)
-
-play(:r)
-sleep 0.25
+puts note :C4
+puts :r
+puts note :r

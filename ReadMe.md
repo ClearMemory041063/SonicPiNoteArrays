@@ -37,6 +37,5 @@ Click on the following:
  
 [InversionNote2]( https://soundcloud.com/joe-mc-749436341/inversion-note-2)
 
-
-
+#### 8. [Modules](https://github.com/ClearMemory041063/SonicPiNoteArrays/tree/master/Modules)
 
