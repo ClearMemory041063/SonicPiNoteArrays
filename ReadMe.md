@@ -1,6 +1,8 @@
 ([Main ReadMe.md
 #### Using Arrays of Note With Sonic PI
 
+Moved the Module rb files to this directory for easy access as they summarize the work.
+
 Click on the following:
 
 ##### The Basic Tools

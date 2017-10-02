@@ -96,11 +96,12 @@ live_loop :LL1 do
     playitt(theme1)
     playitt(theme1)
     playitt(theme1)
+    i+=1
     if i==1 then theme1=theme1.reverse end
     if i==2 then theme1=HI2D.revtime(theme1) end
     if i==3 then theme1=theme1.reverse end
     if i==4 then theme1=HI2D.revtime(theme1) end
-    i+=1
+    #i+=1 #move it up
     if i>4 # then i=0 end
       playitt(theme2)
       stop
